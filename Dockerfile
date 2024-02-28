@@ -1,5 +1,5 @@
 FROM alpine:3.8
-LABEL maintainer="Martin Pouliot <martinp507@gmail.com>"
+LABEL maintainer="Oleg Hahm <oleg@riot-os.org>"
 RUN apk upgrade -q -U -a \
 	&& apk --update add \
 	nginx \
@@ -11,6 +11,9 @@ RUN apk upgrade -q -U -a \
 	graphviz \
 	font-noto \
 	apache2-utils \
+    make \
+    python3 \
+    py3-yaml \
 	&& rm -rf /var/cache/apk/* \
 	&& mkdir -p /var/www/cgi \
 	&& mkdir -p /var/data/ \
@@ -25,7 +28,7 @@ RUN apk upgrade -q -U -a \
 
 COPY nginx/hook.cgi /var/www/cgi/
 COPY nginx/index.html /var/data/html/
-COPY nginx/default.conf.auth nginx/default.conf.noauth /etc/nginx/conf.d/
+COPY nginx/default.conf /etc/nginx/conf.d/
 COPY nginx/nginx.conf /etc/nginx/
 COPY gen-doxygen /usr/bin/
 COPY ssh/ssh_config /etc/ssh/
