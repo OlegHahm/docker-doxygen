@@ -11,6 +11,7 @@ RUN apk upgrade -q -U -a \
 	graphviz \
 	font-noto \
 	apache2-utils \
+	at \
     make \
     python3 \
     py3-yaml \
@@ -36,7 +37,8 @@ COPY doxygen/Doxyfile /usr/share/doc/doxygen/
 COPY run.sh /run.sh
 
 RUN chmod +x /var/www/cgi/hook.cgi /run.sh
+RUN echo nginx >> /etc/at.allow
 
 VOLUME /var/data/
-EXPOSE 80
+EXPOSE 4244
 CMD ["/run.sh"]

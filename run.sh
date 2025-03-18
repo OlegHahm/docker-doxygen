@@ -39,7 +39,7 @@ echo
 usermod -aG tty nginx
 chown -R nginx:nginx /var/data/config/
 echo
-su root -c "netstat -tnp"
+su -s /bin/sh -c "/usr/sbin/atd"
 info "Starting FastCGI"
 chown -R nginx:nginx /var/run/fcgiwrap/
 su nginx -s /bin/sh -c "/usr/bin/fcgiwrap -s unix:/var/run/fcgiwrap/fcgiwrap.sock"&

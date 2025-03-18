@@ -15,7 +15,7 @@ echo
 echo "Launching new task..."
 if [ ! -f /var/run/hook/hook.lock ]; then
 	touch /var/run/hook/hook.lock
-	(gen-doxygen)&
+	echo gen-doxygen | at now
 	echo "New task launched!"
 	exit
 else
