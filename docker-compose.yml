@@ -4,9 +4,7 @@ services:
     environment:
       - GIT_REPO=https://github.com/RIOT-OS/RIOT
       - API_KEY=rkzc7ez3jm078myn79csa0k3t45velcl
-    volumes:
-      - ~/dockertest:/var/data/
     ports:
-      - "8000:80"
+      - "8004:4244"
     container_name: doxybuilder-${COMPOSE_PROJECT_NAME}
     restart: always

@@ -42,6 +42,7 @@ echo
 su -s /bin/sh -c "/usr/sbin/atd"
 info "Starting FastCGI"
 chown -R nginx:nginx /var/run/fcgiwrap/
+su nginx -s /bin/sh -c "/bin/rm -f /var/run/fcgiwrap/fcgiwrap.sock"
 su nginx -s /bin/sh -c "/usr/bin/fcgiwrap -s unix:/var/run/fcgiwrap/fcgiwrap.sock"&
 info "FastCGI started"
 
