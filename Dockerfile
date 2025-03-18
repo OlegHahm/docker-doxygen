@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM alpine:3.21.2
 LABEL maintainer="Oleg Hahm <oleg@riot-os.org>"
 RUN apk upgrade -q -U -a \
 	&& apk --update add \
