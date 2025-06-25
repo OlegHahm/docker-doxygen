@@ -16,8 +16,10 @@ printstd "gen-doxygen starting $(date)"
 #We clone the repo and we generate the doxygen documentation.
 REPO=$(cat /var/data/config/git_repo)
 cd /var/data/repo/
+git config --global --add safe.directory /var/data/repo
+
 #Is the repo https?
-if $(ls -A /var/data/repo/); then
+if [ ! -d /var/data/repo/.git ]; then
     git clone $REPO /var/data/repo
 	if [ ! $(ls -A /var/data/repo/) ]; then
 		printstd "ERROR: Repo is empty abording."
