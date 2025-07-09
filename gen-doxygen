@@ -34,9 +34,9 @@ cd /var/data/repo
 make doc
 
 #We update the documentation directory
-mkdir -p /var/data/html/generated/
-rm -rf /var/data/html/generated/*
-cp -R /var/data/repo/doc/doxygen/html/* /var/data/html/
+rm -rf /var/data/html
+mkdir -p /var/data/
+cp -R /var/data/repo/doc/doxygen/html /var/data/
 
 #We check if the lock file is still present
 clean
