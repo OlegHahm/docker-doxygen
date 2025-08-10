@@ -12,6 +12,7 @@ RUN apk upgrade -q -U -a \
 	font-noto \
 	apache2-utils \
 	at \
+	bash \
     make \
     python3 \
     py3-yaml \
