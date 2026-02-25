@@ -48,6 +48,9 @@ info "FastCGI started"
 
 mkdir -p /run/nginx/
 touch /run/nginx/nginx.pid 
+# cleanup lock file
+rm -f /var/run/hook/hook.lock
+info "Removed lock"
 info "Nginx started"
 echo
 echo "--Nginx Logs--"
